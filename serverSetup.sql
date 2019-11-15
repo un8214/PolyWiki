@@ -1,4 +1,4 @@
-/*
+﻿/*
  * 데이터베이스 생성용
 create database polywiki;
 use polywiki;
@@ -15,7 +15,7 @@ create table document(
 );
 
 create table users(
-	id int not null,
+	id int not null AUTO_INCREMENT,
 	ip varchar(100),
 	username varchar(30),
 	password varchar(30),
@@ -23,5 +23,5 @@ create table users(
 );
 /* 데이터베이스 테스트용 데이터 */
 insert into document(id, edited, title, content, author) value (1,0,"코딩의 신이 되는법", "코딩을 열심히 한다.",1);
-insert into users(id, ip, username, password) value(1, "172.31.0.1", "user", "0000");
-insert into users(id, ip) value(2, "172.31.0.1");
+insert into users(ip, username, password) value(1, "172.31.0.1", "user", "0000");
+insert into users(ip) value(2, "172.31.0.1");
