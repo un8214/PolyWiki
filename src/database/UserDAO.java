@@ -19,11 +19,13 @@ public class UserDAO extends SuperDAO {
 	public int addGuest(String ip) {
 		try {
 			//이미 중복된 계정이 있는지 확인
-			pstmt = conn.prepareStatement("Select ip from users");
+			pstmt = conn.prepareStatement("Select ip from users where ip = ?");
+			pstmt.setString(1, ip);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				return -1; // 데이터베이스에 쿼리되는 게 있으면 -1 리턴
 			}
+			
 			//데이터베이스에 계정 추가
 			pstmt = conn.prepareStatement("insert into users(ip) value(\"?\");");
 			pstmt.setString(1, ip);
