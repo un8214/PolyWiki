@@ -14,9 +14,9 @@ public class SuperDAO {
 	public SuperDAO(){
 		try {
 			String dbURL = "jdbc:mysql://localhost:3306/polywiki?serverTimezone=UTC";
-			String dbID = "admin";
+			String dbID = "root";
 			String dbPassword="0000";
-			Class.forName("conn.mysql.cj.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 		}catch(Exception e){
 			e.printStackTrace();
